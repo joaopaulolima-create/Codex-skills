@@ -109,4 +109,3 @@ Keep the prompt wide and outcome-focused, then let the agent decompose it. Add d
 - [Ralph - Geoffrey Huntley](https://ghuntley.com/ralph/) - Original concept and implementation
 - [Effective Harnesses for Long-Running Agents - Anthropic](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - Engineering patterns for agent loops
 - [Matt Pocock on Ralph](https://www.youtube.com/watch?v=_IK18goX4X8) - Video walkthrough
-
