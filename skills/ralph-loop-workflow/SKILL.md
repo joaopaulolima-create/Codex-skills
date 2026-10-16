@@ -1,111 +1,112 @@
 ---
 name: ralph-loop-workflow
-description: Run a coding agent in an autonomous loop via a /ralph command, gated by a preflight check that every CLI is installed, linked, and authenticated. Use when driving long-running autonomous development from a wide, outcome-focused prompt.
+description: Use for a long-running, outcome-focused development loop that repeatedly plans, implements, verifies, and records progress. Run a project-specific preflight first and stop for missing authority, credentials, destructive actions, or external side effects.
 ---
 
 # Ralph Loop Workflow
 
-Run a coding agent in an autonomous loop that breaks a wide prompt into tasks and builds, tests, and ships each one.
+Run a durable development loop that turns a broad outcome into small verified
+increments. The loop is autonomous only inside the scope the user authorized.
 
-## Prerequisites
+## Preconditions
 
-Complete these setup recipes first:
+Before starting:
 
-- AI Coding Agent Configuration
-- Code Health, Linting & Formatting
-- Testing
+1. Read the repository instructions and the user's outcome.
+2. Inspect the project's own package manager, scripts, test framework, runtime,
+   services, and deployment target. Do not assume a specific stack.
+3. Identify which tools and credentials are actually required.
+4. Verify each requirement with a non-destructive command.
+5. Confirm that the work is isolated from production data and shared branches.
 
-### The Loop
+If the outcome is missing, ask for it. If a required credential, approval, or
+tool is missing, report the exact blocker and stop. Never broaden permissions,
+log in interactively, migrate production data, deploy, publish, or merge unless
+the user explicitly authorized that action.
 
-Ralph maximizes how long the agent runs without human intervention. The goal is not a file format — it is keeping the agent able to plan, build, and verify on its own. The durable record of intent lives in the artifacts the agent produces: tests (executable acceptance criteria), user-facing docs, and a changelog for published libraries.
+## The Loop
 
-```
-input prompt
-  -> preflight check (CLIs installed, linked, authenticated)
-  -> agent harness managed todo list (first-principles task breakdown)
-  -> code + user-facing docs + changelog + tests
-  -> verification (typecheck, fmt, fallow, browser, tests, deploy, prod check)
-  -> iterate
-```
-
-Give the agent a wide, outcome-focused prompt and let its own harness manage the todo list — there is no separate user-story file to author or check off.
-
-If no prompt is given, STOP and ask the user: "What outcome do you want the Ralph loop to drive toward? Give me a wide, outcome-focused prompt and I'll break it into tasks." Wait for their answer before continuing.
-
-Run the preflight check once. If anything is missing or unauthenticated, report the exact fix commands and STOP — the loop does not start until everything is green. Then each iteration:
-
-1. Read the current state of the codebase and any prior progress.
-2. Break remaining work into tasks with first-principles thinking.
-3. Pick the highest-priority task.
-4. Implement it through the dev workflow: write tests, build, generate and migrate DB schema if needed, format.
-5. Verify: typecheck, build, tests, and browser interaction at `http://localhost:3000`.
-6. Debug and fix until verification passes.
-7. Update user-facing docs and the changelog for any published artifacts.
-8. Commit with a descriptive message and move to the next task.
-
-Keep the dev server running (`bun run dev`). The agent works against a test database, so it can migrate freely. The loop ends when no tasks remain and all verification passes.
-
-### What the Agent Needs
-
-Nothing Ralph-specific to install — the loop depends on three things being in place:
-
-- **Context** — how to work in this codebase (patterns, dev workflow, conventions), via `AGENTS.md`, configured MCP servers, and installed skills.
-- **Tools** — to provision resources, run migrations, pull logs, and inspect deployments, via the project's MCP servers and CLIs. Give the agent the same tools you use.
-- **Verification** — what extends autonomous runway. The agent must check its own work locally and in production:
-  - **Code health** — `bun run typecheck`, `bun run fmt`, `bun run fallow`
-  - **Tests** — `bun run test` against an isolated database branch (Playwright, integration, unit)
-  - **Browser** — `agent-browser` to interact with the running app like a user
-  - **Logs & deploys** — pull deployment and runtime logs to confirm changes shipped and work in production
-
-When verification is trustworthy and self-serve, the agent catches and fixes its own regressions without a human in the loop.
-
-### Preflight Check
-
-Confirm the agent has everything before the first iteration, rather than discovering a missing credential halfway through. Don't assume a fixed list — infer the active infrastructure from the codebase, then check each tool:
-
-1. **Discover the infra in use.** Read the MCP config (`.cursor/mcp.json`), the `better-env` `configSchema` declarations, and `package.json` scripts. Each configured service implies a CLI or token: Neon (`DATABASE_URL`), Vercel, Resend, Sentry, GitHub, Better Auth, etc.
-2. **For each tool, verify install + link + auth** with a non-destructive command.
-3. **Report a checklist** with a fix command for every red item.
-
-Example checks (run only the ones the codebase uses):
-
-```bash
-agent-browser -v                                      # browser automation
-vercel --version && vercel whoami && vercel project ls # installed + linked + auth
-neonctl me                                            # Neon CLI authenticated
-sentry-cli info                                       # token present and valid
-gh auth status                                        # GitHub CLI for PRs, logs
-bun run env:validate                                  # env vars match the schema
+```text
+outcome
+  -> project-specific preflight
+  -> prioritized task list
+  -> smallest useful implementation
+  -> tests and relevant checks
+  -> progress record
+  -> next task
 ```
 
-Stop if anything is red:
+For each iteration:
 
+1. Read the current code, instructions, progress record, and recent diff.
+2. Select the highest-priority unfinished task within the authorized scope.
+3. Define observable acceptance criteria.
+4. Implement the smallest coherent change.
+5. Run the project's actual verification commands.
+6. Reproduce and fix failures before continuing.
+7. Update user-facing documentation and changelogs when the change requires it.
+8. Record the result, evidence, decisions, and next task.
+9. Commit only when commits are part of the requested workflow.
+
+Keep a compact progress file in a repository-approved scratch location so the
+loop can resume after interruption or context compaction. Do not rely on chat
+memory alone.
+
+## Verification
+
+Infer checks from the repository instead of hardcoding commands. Typical
+categories include:
+
+- type checking or compilation;
+- formatting and linting;
+- unit, integration, and end-to-end tests;
+- browser or API interaction at the project's configured local URL;
+- database migration checks against an explicitly isolated test database;
+- deployment and runtime logs, only when deployment is authorized.
+
+A check is valid only when it matches the current project. Do not assume Bun,
+Node.js, a localhost port, a browser driver, Vercel, Neon, or any other vendor.
+Treat examples in project documentation as hints until confirmed.
+
+Before any database migration, prove the target is disposable or explicitly
+approved. Before any production check, confirm that reading logs or exercising
+the deployed system is within scope.
+
+## Preflight Report
+
+Report a short checklist:
+
+```text
+Preflight
+  [ok]   package manager     detected from lockfile and scripts
+  [ok]   test command        runs without changing external state
+  [fail] deployment access   authentication required
+
+Blocked: authenticate with the project's documented method, then rerun preflight.
 ```
-Preflight check
-  [ok]   agent-browser            v1.4.2
-  [ok]   vercel                   linked to acme/app, logged in as andre
-  [fail] neon                     not authenticated
-  [fail] DATABASE_URL             not set in .env.local
-  [ok]   gh                       authenticated
 
-2 issues block the loop. Run these, then re-run /ralph:
+Use non-destructive version, status, or identity commands. Never expose tokens
+or secrets in output. For interactive authentication, give the user the
+official project-specific step and wait for them to complete it.
 
-  neonctl auth                      # opens browser for OAuth
-  bun run env:pull                  # pull DATABASE_URL from Vercel
-```
+## Stop Conditions
 
-For interactive OAuth (Vercel, Neon, GitHub), give the user the exact command to run themselves — don't attempt a browser login on their behalf. For anything fixable non-interactively (pulling env vars, setting a token), offer to run it. Start the loop only once every item is green.
+Stop and ask before:
 
-### Steering the Loop
+- destructive or irreversible actions;
+- security-sensitive changes or secret handling;
+- writes outside the authorized workspace;
+- migrations against data that is not proven disposable;
+- pushes, merges, releases, deployments, purchases, or publications not
+  explicitly approved;
+- a plan so ambiguous that proceeding would materially change the outcome.
 
-Keep the prompt wide and outcome-focused, then let the agent decompose it. Add direction by sharpening inputs, not micromanaging steps:
+Otherwise, continue until all in-scope tasks have fresh verification evidence
+or a concrete blocker remains.
 
-- **Sharper prompt** — state the outcome and constraints, not the steps.
-- **Stronger tests** — failing tests are the most reliable signal that more work remains.
-- **Better tools** — when the agent keeps getting stuck, it usually lacks a tool (an MCP server, CLI, or log access), not instructions.
+## Steering
 
-### Background & References
-
-- [Ralph - Geoffrey Huntley](https://ghuntley.com/ralph/) - Original concept and implementation
-- [Effective Harnesses for Long-Running Agents - Anthropic](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - Engineering patterns for agent loops
-- [Matt Pocock on Ralph](https://www.youtube.com/watch?v=_IK18goX4X8) - Video walkthrough
+Improve the loop by sharpening the outcome, acceptance criteria, tests, and
+tool access. When repeated attempts fail, return to root-cause analysis,
+reduce the task, and record what was tried instead of accumulating speculative
+fixes.
