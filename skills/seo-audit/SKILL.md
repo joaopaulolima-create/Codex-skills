@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not showing up in Google," "site isn't ranking," "Google update hit me," "page speed," "core web vitals," "crawl errors," "indexing issues," "stuck on page 2," "striking distance keywords," "title tag rewrite," "low CTR," "local SEO," "Google Business Profile," or "map pack." Use this even if the user just says something vague like "my SEO is bad" or "help with SEO" — start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema. For AI search optimization, see ai-seo.
+description: Use when the user wants a technical, on-page, content-quality, ranking-loss, or local SEO diagnosis. Covers crawling, indexing, Core Web Vitals, metadata, internal links, Google Business Profile diagnostics, NAP, and map-pack issues. For location-based keyword demand, editorial calendars, or producing local posts, use local-seo-content-planner. For structured data implementation, use schema.
 metadata:
   version: 2.2.1
 ---
@@ -452,7 +452,6 @@ Same format as above
 - [Title Tags](references/title-tags.md): Title patterns by page type, Google's rewrite triggers, low-CTR fixes, and the bulk-audit table
 - [Local SEO](references/local-seo.md): Business Profiles, map pack diagnosis, citations, reviews, and location pages for local businesses (with profile and page details in two companion files)
 - [Rankings Push](references/rankings-push.md): Moving positions 8–20 onto page one, fixing weak click-through, and the checklist for shipping a new page
-- For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **ai-seo** skill
 
 ---
 
@@ -488,9 +487,5 @@ Same format as above
 
 ## Related Skills
 
-- **ai-seo**: For optimizing content for AI search engines (AEO, GEO, LLMO)
-- **programmatic-seo**: For building SEO pages at scale
-- **site-architecture**: For page hierarchy, navigation design, and URL structure
-- **schema**: For implementing structured data
-- **cro**: For optimizing pages for conversion (not just ranking)
-- **analytics**: For measuring SEO performance
+- **schema**: Implement and validate structured data.
+- **local-seo-content-planner**: Research location-based demand and turn approved topics into local content.
