@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Audit"
+  short_description: "Diagnose technical and on-page SEO issues"
+  default_prompt: "Use $seo-audit to diagnose this site's SEO issues and prioritize fixes."
+policy:
+  allow_implicit_invocation: true

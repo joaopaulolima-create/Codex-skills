@@ -61,13 +61,14 @@ Read [location-pages-and-measurement.md](local-seo-pages-and-measurement.md) whe
 
 Give each real location a useful destination. A service-area page describes verified service coverage; it must not imply an office that does not exist. Publish a city page only when it adds meaningful local information, evidence, or customer utility. Swapping city names in duplicated text does not create that value.
 
-Route implementation details to the relevant existing skill:
+Route implementation details to the relevant included skill:
 
-- **The rest of this skill (seo-audit):** crawling, indexing, redirects, speed, and technical diagnosis.
-- **site-architecture:** location hierarchy, navigation, and internal links.
-- **programmatic-seo:** scaling a justified page pattern backed by real data.
+- **seo-audit:** crawling, indexing, redirects, speed, and technical diagnosis.
 - **schema:** markup implementation after choosing accurate, public business facts.
-- **ai-seo:** visibility in AI answers when that is part of the request.
+- **local-seo-content-planner:** location demand, topic approval, and production of local posts or page briefs.
+
+Handle location hierarchy, navigation, templating, and AI-answer visibility in the
+current plan unless another installed skill explicitly covers that need.
 
 ## Return a Decision and an Actionable Artifact
 
