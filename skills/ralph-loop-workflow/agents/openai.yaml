@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ralph Loop Workflow"
+  short_description: "Run a safe long-running development loop"
+  default_prompt: "Use $ralph-loop-workflow to run this outcome as a verified, resumable development loop."
+policy:
+  allow_implicit_invocation: true
