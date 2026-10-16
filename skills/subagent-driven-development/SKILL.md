@@ -153,10 +153,9 @@ a ledger file, not only in todos.
 - The ledger is your recovery map: the commits it names exist in git even
   when your context no longer remembers creating them. After compaction,
   trust the ledger and `git log` over your own recollection.
-- Never use broad cleanup commands such as `git clean -fdx` for this
-  workspace; they can erase unrelated ignored files. Preserve the workspace by
-  default and remove only its exact, validated directory when cleanup is
-  explicitly authorized.
+- Never use a repository-wide cleanup command for this workspace; it can erase
+  unrelated ignored files. Preserve the workspace by default and remove only
+  its exact, validated directory when cleanup is explicitly authorized.
 
 Read the plan once, note its context and Global Constraints, and create a
 todo per task. If the plan names a Spec, read that too: the spec is the
