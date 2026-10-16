@@ -174,7 +174,7 @@ You MUST complete each phase before proceeding to the next.
    - Automated test if possible
    - One-off test script if no framework
    - MUST have before fixing
-   - Use the `superpowers:test-driven-development` skill for writing proper failing tests
+   - Write the regression test with the project's existing test framework; if none exists, use the smallest reproducible script
 
 2. **Implement Single Fix**
    - Address the root cause identified
@@ -186,7 +186,7 @@ You MUST complete each phase before proceeding to the next.
    - Test passes now?
    - No other tests broken?
    - Issue actually resolved?
-   - Use the `superpowers:verification-before-completion` skill before claiming success
+   - Use [Verification Before Completion](../verification-before-completion/SKILL.md) before claiming success
 
 4. **If Fix Doesn't Work**
    - STOP
@@ -281,3 +281,10 @@ These techniques are part of systematic debugging and available in this director
 - **`root-cause-tracing.md`** - Trace bugs backward through call stack to find original trigger
 - **`defense-in-depth.md`** - Add validation at multiple layers after finding root cause
 - **`condition-based-waiting.md`** - Replace arbitrary timeouts with condition polling
+
+
+## Supporting Resources
+
+- [Root-cause tracing](root-cause-tracing.md)
+- [Defense in depth](defense-in-depth.md)
+- [Condition-based waiting](condition-based-waiting.md)
