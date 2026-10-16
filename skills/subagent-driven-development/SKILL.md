@@ -278,7 +278,7 @@ Implementer subagents report one of four statuses. Handle each appropriately:
 
 **BLOCKED:** The implementer cannot complete the task. Assess the blocker:
 1. If it's a context problem, provide more context and re-dispatch with the same approved configuration
-2. If the task requires more reasoning, re-dispatch with a approved higher-capability configuration
+2. If the task requires more reasoning, re-dispatch with an approved higher-capability configuration
 3. If the task is too large, break it into smaller pieces
 4. If the plan itself is wrong, rule on the correction, ledger it, and re-dispatch with the ruling carried in the dispatch
 
@@ -361,7 +361,7 @@ choices. If your harness cannot send another message to a live subagent,
 dispatch a fresh implementer carrying the brief path, the report-file path,
 and the findings — the report file is the persistent memory either way.
 
-**Rounds 4-5 — dispatch a fresh implementer on a approved higher-capability configuration** (per
+**Rounds 4-5 — dispatch a fresh implementer on an approved higher-capability configuration** (per
 Model Selection), with the brief path, the report-file path, the open
 findings, and this framing: "A prior implementer attempted this task
 [N] times; you own it now. Read the report file for what was tried." A loop
