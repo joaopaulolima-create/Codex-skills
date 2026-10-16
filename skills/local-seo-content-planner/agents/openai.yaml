@@ -1,0 +1,16 @@
+interface:
+  display_name: "Planejador de SEO Local"
+  short_description: "Pesquisa local e conteúdo orientado por demanda"
+  default_prompt: "Use $local-seo-content-planner para pesquisar a demanda local, selecionar pautas e criar conteúdos aprovados."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "ubersuggest"
+      description: "Dados de palavras-chave, volume, dificuldade, SERP e ideias de conteúdo."
+      transport: "streamable_http"
+      url: "https://ubersuggest-mcp.neilpatelapi.com/mcp"
+
+policy:
+  allow_implicit_invocation: true
+
