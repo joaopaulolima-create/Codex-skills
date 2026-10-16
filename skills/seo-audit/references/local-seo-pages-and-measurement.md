@@ -10,7 +10,7 @@ For service coverage without an office, explain actual availability, constraints
 
 Example decision: a plumber has one operating base and serves two nearby towns. One honest coverage page may suffice. Separate town pages are justified only by additional useful information or evidence; neither town automatically merits another Business Profile.
 
-Before scaling, confirm a stable data source and meaningful differences across pages. Check the current [doorway-abuse policy](https://developers.google.com/search/docs/essentials/spam-policies#doorway-abuse). Route justified templates to programmatic-seo and hierarchy to site-architecture; consolidate pages when the proposed variants add no value.
+Before scaling, confirm a stable data source and meaningful differences across pages. Check the current [doorway-abuse policy](https://developers.google.com/search/docs/essentials/spam-policies#doorway-abuse). Document the template rules and location hierarchy inside the implementation plan; consolidate pages when the proposed variants add no value.
 
 ## Local Structured Data
 
