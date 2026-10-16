@@ -1,0 +1,6 @@
+interface:
+  display_name: "Schema Markup"
+  short_description: "Create and validate structured data markup"
+  default_prompt: "Use $schema to create or validate structured data for this page."
+policy:
+  allow_implicit_invocation: true
