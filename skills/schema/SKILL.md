@@ -1,6 +1,6 @@
 ---
 name: schema
-description: When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions "schema markup," "structured data," "JSON-LD," "rich snippets," "schema.org," "FAQ schema," "product schema," "review schema," "breadcrumb schema," "Google rich results," "knowledge panel," "star ratings in search," or "add structured data." Use this whenever someone wants their pages to show enhanced results in Google. For broader SEO issues, see seo-audit. For AI search optimization, see ai-seo.
+description: Use when the user wants to add, fix, validate, or optimize schema markup and structured data, including JSON-LD, rich-result eligibility, Organization, Article, Product, LocalBusiness, FAQ, and Breadcrumb markup. For a broader technical or on-page diagnosis, use seo-audit.
 metadata:
   version: 2.0.2
 ---
@@ -185,7 +185,4 @@ You can combine multiple schema types on one page using `@graph`:
 
 ## Related Skills
 
-- **seo-audit**: For overall SEO including schema review
-- **ai-seo**: For AI search optimization (schema helps AI understand content)
-- **programmatic-seo**: For templated schema at scale
-- **site-architecture**: For breadcrumb structure and navigation schema planning
+- **seo-audit**: Diagnose broader technical, on-page, and content SEO issues.
