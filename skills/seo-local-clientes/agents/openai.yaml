@@ -1,0 +1,7 @@
+interface:
+  display_name: "SEO Local - Clientes"
+  short_description: "SEO local completo, do onboarding à entrega"
+  default_prompt: "Use $seo-local-clientes para conduzir um projeto completo de SEO local, do diagnóstico à entrega."
+
+policy:
+  allow_implicit_invocation: true
