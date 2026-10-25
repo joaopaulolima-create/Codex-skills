@@ -7,6 +7,7 @@ Windows, macOS, or Linux.
 
 | Skill | Purpose | Extra dependency |
 |---|---|---|
+| `remove-ai-marks` | Remove AI provenance marks and metadata from content you own | Optional format-specific tools and rewrite backends |
 | `local-seo-content-planner` | Research local search demand, request topic approval, and create location-based content | Ubersuggest MCP for live keyword data |
 | `seo-local-clientes` | Run end-to-end local SEO projects from onboarding through Google Business Profile, website, measurement, deployment, and reporting | Optional Google, Ubersuggest, hosting, and browser tools |
 | `seo-audit` | Diagnose technical, on-page, content, ranking, and local SEO issues | Optional SEO/browser tools |
