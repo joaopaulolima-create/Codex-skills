@@ -16,6 +16,30 @@ Windows, macOS, or Linux.
 | `verification-before-completion` | Require fresh evidence before completion claims | None |
 | `subagent-driven-development` | Execute an approved plan with focused implementation and review stages | A platform that permits subagents; falls back to inline execution |
 | `ralph-loop-workflow` | Run a safe, resumable, long-running development loop | Project-specific tools discovered during preflight |
+| `computer-use-workflows` | Operate desktop apps and browser interfaces with visual verification and explicit side-effect boundaries | A compatible native computer-control or browser-control tool |
+
+## Vendored third-party bundles
+
+The repository also contains the requested upstream skill collections under
+`vendor/<bundle>/skills/`. They are kept separate from the first-party `skills/`
+directory so duplicate names do not overwrite your own skills.
+
+| Bundle | Version | Skills | Main use |
+|---|---:|---:|---|
+| `anthropic-agent-skills` | snapshot 2026-10-27 | 14 | Design, development, communication, and creative workflows |
+| `superpowers` | 7.0.1 | 15 | Planning, testing, debugging, review, and delivery discipline |
+| `ponytail` | 5.3.2 | 6 | Small changes, repository audit, review, and technical-debt tracking |
+| `ui-ux-pro-max` | 2.15.0 | 7 | UI/UX, design systems, branding, banners, and slides |
+| `understand-anything` | 2.9.8 | 9 | Codebase maps, onboarding, architecture explanations, and diff analysis |
+| `sales` | 2.1.0 | 36 | Account research, outreach, objections, pipeline, forecasting, and closing |
+| `b2b-outreach-suite` | snapshot 2026-10-27 | 1 | Cold B2B prospecting, ICP definition, sequences, and personalization |
+
+See [VENDORED_SOURCES.md](VENDORED_SOURCES.md) for origins and licenses.
+
+The Anthropic document skills (`docx`, `pdf`, `pptx`, and `xlsx`) are not
+mirrored because their source-available terms prohibit redistribution. Install
+those directly from Anthropic's official plugin marketplace as documented in
+`vendor/anthropic-agent-skills/NOTICE.md`.
 
 ## Download
 
@@ -50,6 +74,23 @@ cp -R "./skills/seo-audit" "$CODEX_SKILLS/"
 Replace `seo-audit` with the desired skill name. If that destination already
 exists, review and remove or rename the old copy before installing; do not
 silently overwrite local customizations.
+
+For a vendored skill, copy its complete directory from the selected bundle. For
+example, on Windows:
+
+```powershell
+$CodexSkills = Join-Path $env:USERPROFILE ".codex\skills"
+Copy-Item -Recurse ".\vendor\sales\skills\draft-outreach" $CodexSkills
+Copy-Item -Recurse ".\vendor\b2b-outreach-suite\skills\b2b-outreach-suite" $CodexSkills
+```
+
+On macOS or Linux:
+
+```bash
+CODEX_SKILLS="${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R "./vendor/sales/skills/draft-outreach" "$CODEX_SKILLS/"
+cp -R "./vendor/b2b-outreach-suite/skills/b2b-outreach-suite" "$CODEX_SKILLS/"
+```
 
 ## Install all skills
 

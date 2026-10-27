@@ -1,0 +1,27 @@
+vendor/** text=auto
+skills/computer-use-workflows/** text=auto
+
+vendor/**/*.sh text eol=lf
+vendor/**/*.py text eol=lf
+vendor/**/*.js text eol=lf
+vendor/**/*.cjs text eol=lf
+vendor/**/*.mjs text eol=lf
+vendor/**/*.ts text eol=lf
+vendor/**/*.md text eol=lf
+vendor/**/*.yaml text eol=lf
+vendor/**/*.yml text eol=lf
+vendor/**/*.json text eol=lf
+vendor/**/*.csv text eol=lf
+skills/computer-use-workflows/** text eol=lf
+
+vendor/**/*.ttf binary
+vendor/**/*.otf binary
+vendor/**/*.png binary
+vendor/**/*.jpg binary
+vendor/**/*.jpeg binary
+vendor/**/*.gif binary
+vendor/**/*.webp binary
+vendor/**/*.pdf binary
+vendor/**/*.docx binary
+vendor/**/*.pptx binary
+vendor/**/*.xlsx binary

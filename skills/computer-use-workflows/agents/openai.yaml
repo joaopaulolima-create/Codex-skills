@@ -1,0 +1,4 @@
+interface:
+  display_name: "Computer Use Workflows"
+  short_description: "Safe visual control for apps and browsers."
+  default_prompt: "Use $computer-use-workflows to complete this task through the computer interface with visual verification and appropriate authorization."
