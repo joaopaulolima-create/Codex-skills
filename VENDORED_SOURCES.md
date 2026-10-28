@@ -15,6 +15,7 @@ instructions and supporting assets otherwise remain unchanged.
 | Understand Anything | 2.9.8 | <https://github.com/Egonex-AI/Understand-Anything> | 9 |
 | Anthropic Sales | 2.1.0 | <https://github.com/anthropics/knowledge-work-plugins> | 36 |
 | B2B Outreach Suite | snapshot installed 2026-10-27 | <https://github.com/microsoft/cat-agent-skills/tree/main/submissions/b2b-outreach-suite> | 1 |
+| Google Maps Scraper | 1.12.1-hardened.1 (`903b96d`) | <https://github.com/gosom/google-maps-scraper> | 1 |
 
 The local `computer-use-workflows` skill is original to this repository. It
 does not copy the proprietary Computer Use bundle shipped with Codex; it routes

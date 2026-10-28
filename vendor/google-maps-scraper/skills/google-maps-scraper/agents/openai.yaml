@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Maps Prospects"
+  short_description: "Small, targeted local-business lead searches"
+  default_prompt: "Use $google-maps-scraper to find a small, reviewable set of businesses in one niche and location."

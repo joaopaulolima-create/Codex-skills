@@ -33,6 +33,7 @@ directory so duplicate names do not overwrite your own skills.
 | `understand-anything` | 2.9.8 | 9 | Codebase maps, onboarding, architecture explanations, and diff analysis |
 | `sales` | 2.1.0 | 36 | Account research, outreach, objections, pipeline, forecasting, and closing |
 | `b2b-outreach-suite` | snapshot 2026-10-27 | 1 | Cold B2B prospecting, ICP definition, sequences, and personalization |
+| `google-maps-scraper` | 1.12.1-hardened.1 | 1 | Small, targeted local-business discovery by niche and location |
 
 See [VENDORED_SOURCES.md](VENDORED_SOURCES.md) for origins and licenses.
 
@@ -82,6 +83,7 @@ example, on Windows:
 $CodexSkills = Join-Path $env:USERPROFILE ".codex\skills"
 Copy-Item -Recurse ".\vendor\sales\skills\draft-outreach" $CodexSkills
 Copy-Item -Recurse ".\vendor\b2b-outreach-suite\skills\b2b-outreach-suite" $CodexSkills
+Copy-Item -Recurse ".\vendor\google-maps-scraper\skills\google-maps-scraper" $CodexSkills
 ```
 
 On macOS or Linux:
@@ -90,6 +92,7 @@ On macOS or Linux:
 CODEX_SKILLS="${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R "./vendor/sales/skills/draft-outreach" "$CODEX_SKILLS/"
 cp -R "./vendor/b2b-outreach-suite/skills/b2b-outreach-suite" "$CODEX_SKILLS/"
+cp -R "./vendor/google-maps-scraper/skills/google-maps-scraper" "$CODEX_SKILLS/"
 ```
 
 ## Install all skills
