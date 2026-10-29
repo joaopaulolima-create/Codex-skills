@@ -1,0 +1,8 @@
+interface:
+  display_name: "Agente-Chefe"
+  short_description: "Orquestra especialistas com contexto mínimo"
+  default_prompt: "Use $agente-chefe para entender esta dor, formar a menor equipe útil e entregar uma solução verificada."
+
+policy:
+  allow_implicit_invocation: true
+

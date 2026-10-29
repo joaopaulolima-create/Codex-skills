@@ -17,6 +17,7 @@ Windows, macOS, or Linux.
 | `subagent-driven-development` | Execute an approved plan with focused implementation and review stages | A platform that permits subagents; falls back to inline execution |
 | `ralph-loop-workflow` | Run a safe, resumable, long-running development loop | Project-specific tools discovered during preflight |
 | `computer-use-workflows` | Operate desktop apps and browser interfaces with visual verification and explicit side-effect boundaries | A compatible native computer-control or browser-control tool |
+| `agente-chefe` | Turn vague or multidisciplinary requests into a coordinated plan and orchestrate only the agents and skills that improve the result | Optional subagents and task-specific skills |
 
 ## Vendored third-party bundles
 
